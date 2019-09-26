@@ -8,7 +8,7 @@
  * @copyright Portions Copyright 2003-2019 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: gmc_de.php 2019-08-10 13:48:54Z webchills $
+ * @version $Id: gmc_de.php 2019-09-26 15:34:54Z webchills $
  */
  
   class google_mcde {
@@ -473,7 +473,7 @@
     }
 
     $table_cost = preg_split("/[:,]/" , MODULE_SHIPPING_TABLE_COST);
-    $size = sizeof($table_cost);
+    $size = count($table_cost);
     for ($i=0, $n=$size; $i<$n; $i+=2) {
       if (round($order_total,9) <= $table_cost[$i]) {
         if (strstr($table_cost[$i+1], '%')) {
@@ -504,7 +504,7 @@
     }
     
     $table_cost = preg_split("/[:,]/" , constant('MODULE_SHIPPING_ZONETABLE_COST_' . $table_zone));
-    $size = sizeof($table_cost);
+    $size = count($table_cost);
     for ($i=0, $n=$size; $i<$n; $i+=2) {
       if (round($order_total,9) <= $table_cost[$i]) {
         $shipping = $table_cost[$i+1];
@@ -532,7 +532,7 @@
     
     $zones_cost = constant('MODULE_SHIPPING_ZONES_COST_' . $table_zone);
     $zones_table = preg_split("/[:,]/" , $zones_cost);
-    $size = sizeof($zones_table);
+    $size = count($zones_table);
     for ($i=0; $i<$size; $i+=2) {
       if (round($order_total,9) <= $zones_table[$i]) {
         if (strstr($zones_table[$i+1], '%')) {
@@ -756,16 +756,13 @@
           }
         }
         echo FTP_CURRENT_DIRECTORY . '&nbsp;' . ftp_pwd($cd) . NL;
-        if (GOOGLE_MCDE_PASV == 'true') {
-          $pasv = true;
-        } else {
+        
           $pasv = false;
-        }
         ftp_pasv($cd, $pasv);
         $upload = ftp_put($cd, $ftp_file, $local_file, $ftp_mode);
         $out = $this->ftp_get_error_from_ob();
         $raw = ftp_rawlist($cd, $ftp_file, true);
-        for($i=0,$n=sizeof($raw);$i<$n;$i++){
+        for($i=0, $n=count($raw); $i<$n; $i++){
           $out .= $raw[$i] . '<br/>';
         }
         if (!$upload) {
