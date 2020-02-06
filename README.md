@@ -1,6 +1,10 @@
 # 156-modul-google-merchant-center
 Google Merchant Center für Zen Cart 1.5.6 deutsch
 
+Hinweis: 
+Freigegebene getestete Versionen für den Einsatz in Livesystemen ausschließlich unter Releases herunterladen:
+https://github.com/zencartpro/156-modul-google-merchant-center/releases
+
 Dieses Modul erzeugt ein XML Artikelfeed für das Google Merchant Center anhand der aktuellen Google Merchant Center Spezifikationen für Deutschland:
 Es ist nur geeignet für das Zielland Deutschland oder Österreich! 
 Das generierte Artikelfeed kann via Zen Cart Administration per FTP an Google übermittelt werden. 
