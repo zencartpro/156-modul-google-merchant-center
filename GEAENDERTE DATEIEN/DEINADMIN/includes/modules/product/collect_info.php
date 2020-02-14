@@ -5,7 +5,7 @@
  * @copyright Copyright 2003-2020 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: collect_info.php for GMCDE 2020-02-14 19:34:41Z webchills $
+ * @version $Id: collect_info.php for GMCDE 2020-02-14 19:54:41Z webchills $
  */
 if (!defined('IS_ADMIN_FLAG')) {
   die('Illegal Access');
@@ -106,6 +106,24 @@ foreach ($manufacturers as $manufacturer) {
   );
 }
 
+// Products Condition
+    if (!isset($pInfo->products_condition)) $pInfo->products_condition = PRODUCTS_CONDITION_DEFAULT;
+    switch ($pInfo->products_condition) {
+      case 'new': $is_products_condition = 'new';  break;
+      case 'used': $is_products_condition = 'used'; break;
+      case 'refurbished': $is_products_condition = 'refurbished'; break;
+      default: $is_products_condition = 'new';
+    }
+	
+	// Products Availability
+    if (!isset($pInfo->products_availability)) $pInfo->products_availability = PRODUCTS_AVAILABILITY_DEFAULT;
+    switch ($pInfo->products_availability) {
+      case 'in stock': $is_products_availability = 'in stock';  break;
+      
+      case 'out of stock': $is_products_availability = 'out of stock'; break;
+	  case 'preorder': $is_products_availability = 'preorder'; break;
+      default: $is_products_availability = 'in stock';
+    }
 // set to out of stock if categories_status is off and new product or existing products_status is off
 if (zen_get_categories_status($current_category_id) == 0 && $pInfo->products_status != 1) {
   $pInfo->products_status = 0;
