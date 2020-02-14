@@ -2,10 +2,10 @@
 /**
  * Zen Cart German Specific
  * @package admin
- * @copyright Copyright 2003-2019 Zen Cart Development Team
+ * @copyright Copyright 2003-2020 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: preview_info.php for GMCDE 2019-08-10 16:29:41Z webchills $
+ * @version $Id: preview_info.php for GMCDE 2020-02-14 19:29:41Z webchills $
  */
 if (!defined('IS_ADMIN_FLAG')) {
   die('Illegal Access');
@@ -50,7 +50,7 @@ $form_action = (isset($_GET['pID'])) ? 'update_product' : 'insert_product';
 <div class="container-fluid">
     <?php
     if (!isset($_GET['read']) || ($_GET['read'] !== 'only')) {
-      echo zen_draw_form($form_action, FILENAME_PRODUCT, 'cPath=' . $cPath . (isset($_GET['product_type']) ? '&product_type=' . $_GET['product_type'] : '') . (isset($_GET['pID']) ? '&pID=' . $_GET['pID'] : '') . '&action=' . $form_action . (isset($_GET['page']) ? '&page=' . $_GET['page'] : ''), 'post', 'enctype="multipart/form-data"');
+      echo zen_draw_form($form_action, FILENAME_PRODUCT, 'cPath=' . $cPath . (isset($_GET['pID']) ? '&pID=' . $_GET['pID'] : '') . '&action=' . $form_action . (isset($_GET['page']) ? '&page=' . $_GET['page'] : ''), 'post', 'enctype="multipart/form-data"');
     }
 
     for ($i = 0, $n = sizeof($languages); $i < $n; $i++) {
@@ -86,7 +86,7 @@ $form_action = (isset($_GET['pID'])) ? 'update_product' : 'insert_product';
       </div>
     </div>
     <div class="row"><?php echo zen_draw_separator('pixel_trans.gif', '1', '10'); ?></div>
-    <div class="row">
+    <div class="row img">
         <?php
 //auto replace with defined missing image
         if (isset($_POST['products_image_manual']) && $_POST['products_image_manual'] != '') {
@@ -94,9 +94,9 @@ $form_action = (isset($_GET['pID'])) ? 'update_product' : 'insert_product';
           $pInfo->products_name = $products_image_name;
         }
         if (isset($_POST['image_delete']) && $_POST['image_delete'] == 1 || $products_image_name == '' && PRODUCTS_IMAGE_NO_IMAGE_STATUS == '1') {
-          echo zen_image(DIR_WS_CATALOG_IMAGES . PRODUCTS_IMAGE_NO_IMAGE, $pInfo->products_name, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'align="right" hspace="5" vspace="5"') . $pInfo->products_description;
+          echo zen_image(DIR_WS_CATALOG_IMAGES . PRODUCTS_IMAGE_NO_IMAGE, $pInfo->products_name, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'class="img-thumbnail" style="float:right;"') . $pInfo->products_description;
         } else {
-          echo zen_image(DIR_WS_CATALOG_IMAGES . $products_image_name, $pInfo->products_name, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'align="right" hspace="5" vspace="5"') . $pInfo->products_description;
+          echo zen_image(DIR_WS_CATALOG_IMAGES . $products_image_name, $pInfo->products_name, SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'class="img-thumbnail" style="float:right;"') . $pInfo->products_description;
         }
         ?>
     </div>
@@ -176,12 +176,11 @@ $form_action = (isset($_GET['pID'])) ? 'update_product' : 'insert_product';
       }
       ?>
       <a href="<?php echo zen_href_link(FILENAME_CATEGORY_PRODUCT_LISTING, 'cPath=' . $cPath . (isset($_GET['pID']) ? '&pID=' . $_GET['pID'] : '') . (isset($_GET['page']) ? '&page=' . $_GET['page'] : '') . (isset($_GET['search']) ? '&search=' . $_GET['search'] : '')); ?>" class="btn btn-default" role="button"><?php echo IMAGE_CANCEL; ?></a>
+    </div>
       <?php 
+  }
       if (!(isset($_GET['read']) && ($_GET['read'] === 'only'))) {
         echo '</form>'; 
-      } ?>
-    </div>
-    <?php
   }
   ?>
 </div>

@@ -1,10 +1,12 @@
 <?php
+ 
 /**
  * @package admin
- * @copyright Copyright 2003-2019 Zen Cart Development Team
+ * Zen Cart German Specific
+ * @copyright Copyright 2003-2020 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: product.php for GMCDE 2019-09-08 16:49:16Z webchills $
+ * @version $Id: product.php for GMCDE 2020-02-14 19:49:16Z webchills $
  */
 
 
@@ -28,9 +30,10 @@ define('TEXT_PRODUCTS_QTY_BOX_STATUS_PREVIEW', 'Warning: Does not show Quantity 
 
 define('TEXT_PRODUCTS_MANUFACTURER', 'Products Manufacturer:');
 define('TEXT_PRODUCTS_NAME', 'Products Name:');
+define('TEXT_PRODUCTS_MERKMALE', 'Merkmale für Buttonlösung:');
 define('TEXT_PRODUCTS_DESCRIPTION', 'Products Description:');
 define('TEXT_PRODUCTS_QUANTITY', 'Products Quantity:');
-define('TEXT_PRODUCTS_MODEL', 'Products Model:');
+
 define('TEXT_PRODUCTS_IMAGE', 'Products Image:');
 define('TEXT_IMAGE_NONEXISTENT', 'Image does not exist');
 define('TEXT_PRODUCTS_IMAGE_DIR', 'Upload to directory:');
@@ -59,6 +62,8 @@ define('TEXT_PRODUCTS_TAX_CLASS', 'Tax Class:');
 define('TEXT_PRODUCTS_QUANTITY_MIN_RETAIL', 'Product Qty Minimum:');
 define('TEXT_PRODUCTS_QUANTITY_UNITS_RETAIL', 'Product Qty Units:');
 define('TEXT_PRODUCTS_QUANTITY_MAX_RETAIL', 'Product Qty Maximum:');
+define('TEXT_PRODUCTS_QTY_MIN_UNITS_PREVIEW', 'Warning: Minimum is less than Units');
+define('TEXT_PRODUCTS_QTY_MIN_UNITS_MISMATCH_PREVIEW', 'Warning: Minimum is not a multiple of Units');
 
 define('TEXT_PRODUCTS_QUANTITY_MAX_RETAIL_EDIT', '0 = Unlimited, 1 = No Qty Boxes');
 

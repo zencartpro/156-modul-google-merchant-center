@@ -3,10 +3,10 @@
 /**
  * Zen Cart German Specific
  * @package admin
- * @copyright Copyright 2003-2019 Zen Cart Development Team
+ * @copyright Copyright 2003-2020 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
-  * @version $Id: update_product.php for GMCDE 2019-08-10 13:29:41Z webchills $
+  * @version $Id: update_product.php for GMCDE 2020-02-14 19:29:41Z webchills $
  */
 if (!defined('IS_ADMIN_FLAG')) {
   die('Illegal Access');
@@ -75,7 +75,7 @@ if (isset($_POST['edit']) && $_POST['edit'] == 'edit') {
     zen_update_products_price_sorter($products_id);
 
     $db->Execute("INSERT INTO " . TABLE_PRODUCTS_TO_CATEGORIES . " (products_id, categories_id)
-                  VALUES ('" . (int)$products_id . "', '" . (int)$current_category_id . "')");
+                  VALUES (" . (int)$products_id . ", " . (int)$current_category_id . ")");
 
     zen_record_admin_activity('New product ' . (int)$products_id . ' added via admin console.', 'info');
 
@@ -124,6 +124,7 @@ if (isset($_POST['edit']) && $_POST['edit'] == 'edit') {
       zen_db_perform(TABLE_PRODUCTS_DESCRIPTION, $sql_data_array, 'update', "products_id = " . (int)$products_id . " and language_id = " . (int)$language_id);
     }
   }
+  $zco_notifier->notify('NOTIFY_MODULES_UPDATE_PRODUCT_END', array('action' => $action, 'products_id' => $products_id));
 
   zen_redirect(zen_href_link(FILENAME_CATEGORY_PRODUCT_LISTING, 'cPath=' . $cPath . '&pID=' . $products_id . (isset($_GET['page']) ? '&page=' . $_GET['page'] : '') . (isset($_POST['search']) ? '&search=' . $_POST['search'] : '')));
 } else {
