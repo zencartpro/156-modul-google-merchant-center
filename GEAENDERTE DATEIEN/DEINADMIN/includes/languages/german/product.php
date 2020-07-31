@@ -1,7 +1,6 @@
 <?php
 /**
  * @package admin
- * Zen Cart German Specific
  * @copyright Copyright 2003-2020 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
@@ -59,8 +58,6 @@ define('TEXT_PRODUCTS_TAX_CLASS', 'Steuerklasse:');
 define('TEXT_PRODUCTS_QUANTITY_MIN_RETAIL', 'Artikel Mindestabnahmemenge:');
 define('TEXT_PRODUCTS_QUANTITY_UNITS_RETAIL', 'Artikel Einheiten:');
 define('TEXT_PRODUCTS_QUANTITY_MAX_RETAIL', 'Artikel Maximalabnahmemenge:');
-define('TEXT_PRODUCTS_QTY_MIN_UNITS_PREVIEW', 'Warnung: Minimum ist weniger als Einheiten');
-define('TEXT_PRODUCTS_QTY_MIN_UNITS_MISMATCH_PREVIEW', 'Warnung: Minimum ist kein Vielfaches der Einheiten');
 
 define('TEXT_PRODUCTS_QUANTITY_MAX_RETAIL_EDIT', '0 = Unlimitiert, 1 = kein Mengeneingabefeld');
 

@@ -2,13 +2,13 @@
 /**
  * googlemcde.php
  *
- * @package google merchant center deutschland 3.6.0 for Zen-Cart 1.5.6 german
+ * @package google merchant center deutschland 3.6.1 for Zen-Cart 1.5.6 german
  * @copyright Copyright 2007 Numinix Technology http://www.numinix.com
  * @copyright Portions Copyright 2011-2019 webchills http://www.webchills.at
  * @copyright Portions Copyright 2003-2096 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: gmcde.php 2019-08-10 18:29:54Z webchills $
+ * @version $Id: gmcde.php 2020-07-31 16:25:54Z webchills $
  */
  /* configuration */
   ini_set('max_execution_time', 900); // change to whatever time you need
@@ -280,7 +280,7 @@
                     $count = 0;
                     foreach ($additional_images as $additional_image) {
                       $count++;
-                      $content["image_link"] .= '<g:image_link>' . $additional_image . '</g:image_link>';
+                      $content["additional_image_link"] .= '<g:additional_image_link>' . $additional_image . '</g:additional_image_link>';
                       if ($count == 9) break; // max 10 images including main image 
                     }
                   }

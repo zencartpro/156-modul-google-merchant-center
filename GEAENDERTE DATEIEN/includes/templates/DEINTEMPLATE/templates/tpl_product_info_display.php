@@ -1,7 +1,7 @@
 <?php
 /**
  * Page Template
- * Zen Cart German Specific
+ *
  * Loaded automatically by index.php?main_page=product_info.<br />
  * Displays details of a typical product
  *
@@ -9,7 +9,7 @@
  * @copyright Copyright 2003-2019 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: tpl_product_info_display.php for Google Merchant Center 2019-08-10 13:05:40Z webchills $
+ * @version $Id: tpl_product_info_display.php for Google Merchant Center 2020-07-31 16:05:40Z webchills $
  */
  //require(DIR_WS_MODULES . '/debug_blocks/product_info_prices.php');
 ?>
