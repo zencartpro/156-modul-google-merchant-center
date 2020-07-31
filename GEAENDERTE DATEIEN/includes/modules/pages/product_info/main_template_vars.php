@@ -6,7 +6,7 @@
  * @copyright Copyright 2003-2020 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: main_template_vars.php for GMCDE 2020-07-31 12:47:36Z webchills $
+ * @version $Id: main_template_vars.php for GMCDE 2020-07-31 17:54:36Z webchills $
  */
 /*
  * Extracts and constructs the data to be used in the product-type template tpl_TYPEHANDLER_info_display.php
@@ -37,7 +37,7 @@
     $zco_notifier->notify('NOTIFY_PRODUCT_VIEWS_HIT_INCREMENTOR', (int)$_GET['products_id']);
 
     $sql = "select p.products_id, pd.products_name,
-                  pd.products_description, p.products_model,
+                  pd.products_description, p.products_model, p.products_ean, p.products_isbn, p.products_brand, p.products_availability,
                   p.products_quantity, p.products_image,
                   pd.products_url, p.products_price,
                   p.products_tax_class_id, p.products_date_added,

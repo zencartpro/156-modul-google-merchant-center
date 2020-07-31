@@ -332,8 +332,11 @@ if (isset($keywords) && zen_not_null($keywords)) {
 
         $where_str = $db->bindVars($where_str, ':keywords', $search_keywords[$i], 'noquotestring');
 
-       
+        $where_str .= " OR (mtpd.metatags_description
+                        LIKE '%:keywords%'
+                        AND mtpd.metatags_description !='')";
 
+        $where_str = $db->bindVars($where_str, ':keywords', $search_keywords[$i], 'noquotestring');
 
         if (isset($_GET['search_in_description']) && ($_GET['search_in_description'] == '1')) {
           $where_str .= " OR pd.products_description
