@@ -2,13 +2,13 @@
 /**
  * gmc_de.php
  *
- * @package google merchant center deutschland 3.6.0 for Zen-Cart 1.5.6 german
+ * @package google merchant center deutschland 3.6.1 for Zen-Cart 1.5.6 german
  * @copyright Copyright 2007 Numinix Technology http://www.numinix.com
- * @copyright Portions Copyright 2011-2019 webchills http://www.webchills.at
+ * @copyright Portions Copyright 2011-2020 webchills http://www.webchills.at
  * @copyright Portions Copyright 2003-2019 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: gmc_de.php 2019-09-26 15:34:54Z webchills $
+ * @version $Id: gmc_de.php 2020-08-20 08:34:54Z webchills $
  */
  
   class google_mcde {
@@ -251,7 +251,7 @@
                            '', false, 150);
       while (!$cat->EOF) {
         $cats[$cat->fields['categories_id']]['name'] = (zen_not_null($cName) ? $cName . ', ' : '') . trim($cat->fields['categories_name']); // previously used zen_froogle_sanita instead of trim
-        $cats[$cat->fields['categories_id']]['cPath'] = (zen_not_null($cPath) ? $cPath . ',' : '') . $cat->fields['categories_id'];
+        $cats[$cat->fields['categories_id']]['cPath'] = (zen_not_null($cPath) ? $cPath . '_' : '') . $cat->fields['categories_id'];
         if (zen_has_category_subcategories($cat->fields['categories_id'])) {
           $cats = $this->google_mcde_category_tree($cat->fields['categories_id'], $cats[$cat->fields['categories_id']]['cPath'], $cats[$cat->fields['categories_id']]['name'], $cats);
         }
